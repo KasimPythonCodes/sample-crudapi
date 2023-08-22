@@ -50,4 +50,10 @@ class Studentupdate(GenericAPIView):
         upid.save()
         msg = 'Your profile changed successfully!'
         return response.Response({'msg':msg},status=status.HTTP_202_ACCEPTED)
+    
+    def delete(self,request,id):
+        dlid = models.Student.objects.get(id=id)
+        dlid.delete()
+        msg ='Your profile deleted successfully!'
+        return response.Response({'msg':msg},status=status.HTTP_200_OK)
         
